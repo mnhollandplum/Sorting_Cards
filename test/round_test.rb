@@ -65,6 +65,14 @@ class RoundTest < Minitest::Test
     assert_equal 1, round.guesses.count
   end
 # test it gives correct feedback for correct guess
+  def test_feedback_for_correct_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal "Correct!", round.guesses.first.feedback
+  end
 
 #test it counts correct guesses
 
