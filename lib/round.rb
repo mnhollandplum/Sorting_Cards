@@ -2,10 +2,12 @@ require 'pry'
 #create class
 class Round
 #allow test to read variables
-attr_reader :deck
+attr_reader :deck, :guesses
 #initialize method and create instance variables for...?
   def initialize(deck)
     @deck = deck
+    @guesses = []
+
   end
 
 
