@@ -14,10 +14,12 @@ attr_reader :deck, :guesses
     deck.cards[0]
   end
 
-  #define record_guess
+  #define record_guess, put guesses in array, if correct feedback
   def record_guess(response)
     guess = Guess.new("#{response[:value]} of #{response[:suit]}", current_card)
     @guesses << guess
+    if guess.correct? == "Correct!"
+    end
     guess
   end
 
