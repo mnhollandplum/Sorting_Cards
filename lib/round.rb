@@ -8,6 +8,7 @@ attr_reader :deck, :guesses
     @deck = deck
     @guesses = []
 
+
   end
 
   #define current card
@@ -15,5 +16,9 @@ attr_reader :deck, :guesses
     deck.cards[0]
   end
 
-
+  #define record_guess
+  def record_guess(response)
+    guess = Guess.new("#{response[:value]} of #{response[:suit]}", current_card)
+    guess
+  end
 end

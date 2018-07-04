@@ -19,6 +19,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     assert_instance_of Round, round
   end
+
 #test that it holds a deck round.deck
   def test_that_the_round_exists
     card_1 = Card.new("3","Hearts")
@@ -45,9 +46,15 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     assert_equal card_1, round.current_card
   end
-
-#test guess is recorded round.record_guess({value: "3", suit: "Hearts"})
-
+# test the guesses are recorded using a guess, the value and suit of the card and the response (interpolated value and suit)
+  def test_guess_is_recorded
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    guess = round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal "3 of Hearts", guess.response
+  end
 #test the guesses are being counted round.guesses.count
 
 # test it gives correct feedback for correct guess
