@@ -29,7 +29,7 @@ class RoundTest < Minitest::Test
   end
 
 #test guesses start at [] round.guesses
-  def test_that_the_round_exists
+  def test_that_guesses_start
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -37,7 +37,14 @@ class RoundTest < Minitest::Test
     assert_equal [], round.guesses
   end
 
-#test current card is the first card in the deck
+#test current card is the first card in the deck round.current_card
+  def test_current_card_is_first_in_deck
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    assert_equal card_1, round.current_card
+  end
 
 #test guess is recorded round.record_guess({value: "3", suit: "Hearts"})
 
