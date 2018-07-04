@@ -19,9 +19,16 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
     assert_instance_of Round, round
   end
-#test that it holds a deck
+#test that it holds a deck round.deck
+  def test_that_the_round_exists
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    assert_instance_of Deck, round.deck
+  end
 
-#test guesses start at []
+#test guesses start at [] round.guesses
 
 #test current card is the first card in the deck
 
