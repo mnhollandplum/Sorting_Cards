@@ -10,6 +10,10 @@ attr_reader :deck, :guesses
 
   end
 
+  #define current card
+  def current_card
+    deck.cards[0]
+  end
 
 
 end
