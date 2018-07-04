@@ -2,11 +2,12 @@ require 'pry'
 #create class
 class Round
 #allow test to read variables
-attr_reader :deck, :guesses
+attr_reader :deck, :guesses, :number_correct
 #initialize method and create instance variables for...?
   def initialize(deck)
     @deck = deck
     @guesses = []
+    @number_correct = 0
   end
 
   #define current card
@@ -19,6 +20,8 @@ attr_reader :deck, :guesses
     guess = Guess.new("#{response[:value]} of #{response[:suit]}", current_card)
     @guesses << guess
     if guess.correct? == "Correct!"
+    end
+    if guess.correct? == @number_correct =+ 1
     end
     guess
   end
