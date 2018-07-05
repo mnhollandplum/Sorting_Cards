@@ -27,7 +27,7 @@ attr_reader :deck, :guesses, :number_correct
       end
 
       #move to the next card after correct guess
-      #I have an array of a deck of cards, each time there is a correct guess I want to move to the next card in that array
+      #I have an array of a deck of cards, each time there is a correct guess I want to move to the next card in that array.
 
     guess
   end
