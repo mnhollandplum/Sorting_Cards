@@ -105,7 +105,15 @@ class RoundTest < Minitest::Test
   end
 
 #test it counts the next guess
-
+  def test_it_counts_next_guess
+     card_1 = Card.new("3", "Hearts")
+     card_2 = Card.new("4", "Clubs")
+     deck = Deck.new([card_1, card_2])
+     round = Round.new(deck)
+     guess = round.record_guess({value: "3", suit: "Hearts"})
+     guess = round.record_guess({value: "Jack", suit: "Diamonds"})
+     assert_equal 2, round.guesses.count
+   end
 #test last feedback is "incorrect" at end
 
 # test number guesses correct in round
