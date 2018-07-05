@@ -84,9 +84,17 @@ class RoundTest < Minitest::Test
     assert_equal 1, round.number_correct
   end
 
-#test it changes card after guess
+# test it changes card after correct guess
+  def test_card_changes_after_correct_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    assert_equal card_2, round.current_card
+  end
 
-#test it records incorrect guess
+#test it records next guess
 
 #test final feedback is "incorrect" at end
 
